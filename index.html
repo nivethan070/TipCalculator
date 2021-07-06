@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tip calculator</title>
+  </head>
+  <body>
+    <div class="overlay">
+      <main>
+        <form action="">
+          <h1>Tip Calculator</h1>
+            <!-- Enter Bill Amount -->
+          <div class="group">
+            <label for="bill-value">Enter The Bill Amount</label>
+            <input type="number" name="bill-value" id="bill-value" class="fields"/>
+          </div>
+          <!-- Enter Sharing details -->
+          <div class="group">
+            <label for="sharing">How many people are sharing the bill</label>
+            <input type="number" name="sharing" id="sharing" class="fields" />
+          </div>
+          <!-- Select Service Review -->
+          <div class="group">
+            <p>How was the service</p>
+            <select name="dropdown" id="dropdown" placeholder="Select one..." class="fields">
+              <option value="">Select here...</option>
+              <option value="2">Really Bad</option>
+              <option value="4">Bad </option>
+              <option value="6">Ok </option>
+              <option value="8">Good </option>
+              <option value="10">OutStanding </option>
+            </select>
+          </div>
+          <button type="button" id="calculate">Calculate</button>
+          <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnMxDj8iMQA8-IYAbUk5WdIbDySZD5e0E&callback=initMap"></script>
+          <script type="text/javascript">
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (p) {
+                    var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+                    var mapOptions = {
+                        center: LatLng,
+                        zoom: 13,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+                    var marker = new google.maps.Marker({
+                        position: LatLng,
+                        map: map,
+                        title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
+                    });
+                    google.maps.event.addListener(marker, "click", function (e) {
+                        var infoWindow = new google.maps.InfoWindow();
+                        infoWindow.setContent(marker.title);
+                        infoWindow.open(map, marker);
+                    });
+                });
+            } else {
+                alert('Geo Location feature is not supported in this browser.');
+            }
+        </script>
+        <div id="dvMap" style="width: 500px; height: 195px">
+        </div>
+        </form>
+        <div class="bottom"></div>
+      </main>
+    </div>
+    <div class="result hidden">
+      <p>Tip amount is: <span id="tip">0</span></p>
+      <p>Total bill is: <span id="total">0</span></p>
+      <p>Share per person is: <span id="shares">0</span></p>
+      <button id="btn-new">New</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+<!-- Embedded Map -->
+  <!-- <div>
+  <button type="button" id="calculate">Calculate</button>
+  <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
+  <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div><script>(function () {
+  var setting = {"height":270,"width":1500,"zoom":15,"queryString":"Chennai, Tamil Nadu, India India","place_id":"ChIJIVzyMccmVToRaoa10MrsOUM","satellite":false,"centerCoord":[],"cid":"0x4339eccad0b5866a","lang":"en","id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"541174"};
+  var d = document;
+  var s = d.createElement('script');
+  s.src = 'https://1map.com/js/script-for-user.js?embed_id=541174';
+  s.async = true;
+  s.onload = function (e) {
+  window.OneMap.initMap(setting)
+  };
+  var to = d.getElementsByTagName('script')[0];
+  to.parentNode.insertBefore(s, to);
+  })();</script><a href="https://1map.com/map-embed">Map</a></div>
+  </div> -->

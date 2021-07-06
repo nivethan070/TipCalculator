@@ -1,0 +1,76 @@
+
+body {
+  font-family: Roboto;
+  background: #8E0E00;
+  background: -webkit-linear-gradient(to left, #8E0E00, #1F1C18);
+  background: linear-gradient(to left, #8E0E00, #1F1C18);
+}
+
+main {
+  height: 500px;
+  width: 500px;
+  margin: 100px auto;
+  background: #f7f7f7;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  background: #1F030C;
+  color: white;
+  margin: 0;
+  padding: 10px 100px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: normal;
+}
+p {
+  padding-left: 20px;
+}
+input,
+select {
+  font-size: 20px;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 3rem;
+}
+
+.overlay {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+button {
+  background-color: #5f5f5f;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 20px;
+  width: 175px;
+}
+button:hover {
+  background-color: #a35555;
+  cursor: pointer;
+}
+.result {
+  background-color: #eee;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3rem 4rem;
+  border: 2px solid #000;
+  text-align: center;
+}
+.result p {
+  margin: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+.hidden {
+  color: hsl(0, 58%, 68%);
+}
